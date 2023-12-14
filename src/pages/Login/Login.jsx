@@ -32,8 +32,7 @@ const Login = () => {
       } else {
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         toast.success("Logged in", { id: toastID });
-
-        dispatch(setAuthUser(data));
+        dispatch(setAuthUser({ userData: data, token }));
       }
     } catch (error) {
       toast.error(error.message, {

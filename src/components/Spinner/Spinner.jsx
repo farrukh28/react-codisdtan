@@ -7,7 +7,7 @@ const Spinner = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center my-4">
-      <HalfCircleSpinner size={size} />
+      <HalfCircleSpinner color="#1976d2" size={size} />
       {showText && (
         <p className="text-xl text-primary-light dark:text-primary-dark">
           {customText}

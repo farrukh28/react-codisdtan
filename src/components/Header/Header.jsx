@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useReduxUser } from "../../utils/hooks";
 import { useDispatch } from "react-redux";
 import { removeAuthUser } from "../../redux/slices/authUser";
@@ -9,6 +9,7 @@ import axios from "axios";
 const Header = () => {
   // router
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   // hooks
   const reduxUser = useReduxUser();
@@ -26,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-4 bg-blue-200 ">
+    <header className="sticky top-0 left-0 z-10 py-4 bg-blue-200">
       <Container>
         <div className="flex items-center justify-between">
           <span
@@ -37,11 +38,14 @@ const Header = () => {
           </span>
           <div>
             {reduxUser ? (
-              <span onClick={handleLogout} className="cursor-pointer">
-                Logout
-              </span>
+              <div className="flex gap-3">
+                <Link to="/dashboard">Dashboard</Link>
+                <span onClick={handleLogout} className="cursor-pointer">
+                  Logout
+                </span>
+              </div>
             ) : (
-              <Link to="/auth/login">Login</Link>
+              pathname !== "/auth/login" && <Link to="/auth/login">Login</Link>
             )}
           </div>
         </div>
