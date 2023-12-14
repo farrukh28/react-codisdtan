@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { sonner } from "../../configs/toaster";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
+import Spinner from "../Spinner/Spinner";
 
 // set default routes base url
 axios.defaults.baseURL = `${process.env.REACT_APP_BASE_URL}/api/v1`;
@@ -32,6 +33,7 @@ const Providers = ({ children }) => {
         closeButton={sonner.closeButton}
         richColors={sonner.richColors}
         visibleToasts={sonner.visibleToasts}
+        loadingIcon={<Spinner size={20} />}
         toastOptions={{
           duration: sonner.toastOptions.duration,
         }}
