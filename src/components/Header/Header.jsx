@@ -27,12 +27,12 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 z-10 py-4 bg-blue-200">
+    <header className="sticky top-0 left-0 z-10 py-4 bg-[#5FBDFF]">
       <Container>
         <div className="flex items-center justify-between">
           <span
             onClick={handleGoHome}
-            className="text-lg cursor-pointer md:text-2xl"
+            className="text-lg font-semibold cursor-pointer md:text-2xl"
           >
             Header
           </span>
