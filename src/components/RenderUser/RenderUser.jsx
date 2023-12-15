@@ -58,7 +58,7 @@ const RenderUser = ({ userID, firstName, lastName, type, email, refetch }) => {
             className="cursor-pointer"
           >{`${firstName} ${lastName}`}</span>
         </TableCell>
-        <TableCell>{type}</TableCell>
+        <TableCell>{email}</TableCell>
         <TableCell align="center">
           <IconButton onClick={handleOpenMenu}>
             <MoreVert />

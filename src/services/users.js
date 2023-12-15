@@ -1,21 +1,24 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import axios from "axios";
 
-const fetchAllUsers = (page, limit) => {
+const fetchAllUsers = (page, limit, sort, q) => {
   return axios.get("/users", {
     params: {
       page,
       limit,
+      sort,
+      q,
     },
   });
 };
 
-export const useUsersData = (page = 0, limit = 10) => {
+export const useUsersData = (page = 0, limit = 10, sort = "", q = "") => {
   page = ++page;
   return useQuery({
-    queryKey: ["get-all-users", page, limit],
-    queryFn: () => fetchAllUsers(page, limit),
+    queryKey: ["get-all-users", page, limit, sort, q],
+    queryFn: () => fetchAllUsers(page, limit, sort, q),
     refetchOnWindowFocus: false,
+    placeholderData: keepPreviousData,
   });
 };
 

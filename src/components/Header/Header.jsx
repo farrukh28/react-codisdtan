@@ -34,7 +34,7 @@ const Header = () => {
             onClick={handleGoHome}
             className="text-lg font-semibold cursor-pointer md:text-2xl"
           >
-            Header
+            Codistan
           </span>
           <div>
             {reduxUser ? (
