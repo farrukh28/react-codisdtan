@@ -36,15 +36,13 @@ const Header = () => {
             Codistan
           </span>
           <div>
-            {reduxUser ? (
+            {reduxUser && (
               <div className="flex gap-3">
                 <Link to="/dashboard">Dashboard</Link>
                 <span onClick={handleLogout} className="cursor-pointer">
                   Logout
                 </span>
               </div>
-            ) : (
-              <Link to="/auth/login">Login</Link>
             )}
           </div>
         </div>
